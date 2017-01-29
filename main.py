@@ -18,7 +18,7 @@ ap_if = network.WLAN(network.AP_IF)
 ap_if.active(True)
 print(ap_if.ifconfig())
 
-import sockets
+import socket
 addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
 
 s = socket.socket()
