@@ -13,6 +13,11 @@ HTTP/1.1 200 OK\r\nContent-Length: 244\r\nContent-Type: text/html\r\n\r\n
 </html>
 """
 
+import network
+ap_if = network.WLAN(network.AP_IF)
+ap_if.active(True)
+print(ap_if.ifconfig())
+
 import sockets
 addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
 
