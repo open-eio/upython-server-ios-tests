@@ -3,7 +3,7 @@ pins = [machine.Pin(i, machine.Pin.IN) for i in (0, 2, 4, 5, 12, 13, 14, 15)]
 
 
 html = """
-HTTP/1.1 200 OK\r\nContent-Length: 244\r\nContent-Type: text/html\r\n\r\n
+HTTP/1.1 200 OK\r\nContent-Length: 200\r\nContent-Type: text/html\r\nConnection: Closed\r\n\r\n
 <!DOCTYPE html>
 <html>
     <head> <title>ESP8266 Pins</title> </head>
