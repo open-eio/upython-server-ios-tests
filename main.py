@@ -3,7 +3,7 @@ pins = [machine.Pin(i, machine.Pin.IN) for i in (0, 2, 4, 5, 12, 13, 14, 15)]
 
 
 html = """
-HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n
+HTTP/1.1 200 OK\r\nContent-Length: 244\r\nContent-Type: text/html\r\n\r\n
 <!DOCTYPE html>
 <html>
     <head> <title>ESP8266 Pins</title> </head>
@@ -30,6 +30,6 @@ while True:
         if not line or line == b'\r\n':
             break
     rows = ['<tr><td>%s</td><td>%d</td></tr>' % (str(p), p.value()) for p in pins]
-    response = html % '\n'.join(rows)
+    response = html #FIMXE% '\n'.join(rows)
     cl.send(response)
     cl.close()
