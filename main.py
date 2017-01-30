@@ -2,8 +2,7 @@ import machine
 pins = [machine.Pin(i, machine.Pin.IN) for i in (0, 2, 4, 5, 12, 13, 14, 15)]
 
 
-html = """
-HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nConnection: closed\r\n\r\n
+body = """
 <!DOCTYPE html>
 <html>
     <head> <title>ESP8266 Pins</title> </head>
@@ -12,6 +11,15 @@ HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nConnection: closed\r\n\r\n
     </body>
 </html>
 """
+
+length=len(body)
+
+#header = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nContent-length: "+str(length)+"\r\nConnection: closed\r\n\r\n"
+header = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nContent-length: "+str(length)+"\r\n"
+
+html = header+body
+
+print(html)
 
 import network
 ap_if = network.WLAN(network.AP_IF)
