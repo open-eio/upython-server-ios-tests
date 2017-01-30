@@ -1,4 +1,5 @@
 import machine
+import sys
 pins = [machine.Pin(i, machine.Pin.IN) for i in (0, 2, 4, 5, 12, 13, 14, 15)]
 
 
@@ -12,10 +13,14 @@ body = """
 </html>
 """
 
-length=len(body)
+body_bytes=bytes(body,'utf8')
+
+length=len(body_bytes)
+#length=sys.getsizeof(body)
 
 #header = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nContent-length: "+str(length)+"\r\nConnection: closed\r\n\r\n"
 header = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nContent-length: "+str(length)+"\r\n"
+#header = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n"
 
 html = header+body
 
